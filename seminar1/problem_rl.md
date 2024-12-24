@@ -1,4 +1,4 @@
-#Problem RL -- рекурсия в цикл
+# Problem RL - рекурсия в цикл
 
 Ниже приведён исходный код программы для рекурсивного алгоритма Евклида.
 
@@ -11,17 +11,17 @@
 
 Вывод: `1`
 
-##Пример 2
+## Пример 2
 Ввод: `3 2`
 
 Вывод: `1`
 
-##Пример 3
+## Пример 3
 Ввод: `2 4`
 
 Вывод: `2`
 
-#Примечания
+# Примечания
 ```
 #include <assert.h>
 #include <stdio.h>
@@ -50,3 +50,5 @@ int main() {
   return 0;
 }
 ```
+# Тесты
+<https://github.com/tilir/c-graduate/tree/master/coursework/contests/hwbasics/tests/problem_rl>
