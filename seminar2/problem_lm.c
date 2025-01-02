@@ -3,6 +3,24 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+unsigned long long gcd(unsigned long long x, unsigned long long y);
+unsigned long long lcm(unsigned long long a, unsigned long long b);
+unsigned long long lcmN(unsigned long long N);
+
+int main() {
+    unsigned long long N = 0;
+    unsigned long long ans = 0;
+    int res;
+
+    res = scanf("%lld", &N);
+    assert(res == 1);
+    ans = lcmN(N);
+    printf("%lld", ans);
+
+    return 0;
+}
+
+
 unsigned long long gcd(unsigned long long x,
                        unsigned long long y) {
 	unsigned long long q;
@@ -36,17 +54,3 @@ unsigned long long lcmN(unsigned long long N){
     }
     return ans;
 }
-
-int main() {
-    unsigned long long N = 0;
-    unsigned long long ans = 0;
-    int res;
-
-    res = scanf("%lld", &N);
-    assert(res == 1);
-    ans = lcmN(N);
-    printf("%lld", ans);
-
-    return 0;
-}
-

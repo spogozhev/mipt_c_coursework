@@ -92,6 +92,8 @@ int main()
 
 #line 10000
 
+//#include "u_template.h"
+
 void fill_sieve(struct sieve_t* sv) {
     int size = CHAR_BIT * sv->n;
     int k = 0;

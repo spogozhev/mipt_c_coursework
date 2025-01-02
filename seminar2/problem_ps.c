@@ -44,26 +44,27 @@ int main()
 
 #line 10000
 
-void fill_sieve(struct sieve_t *s){
-    long long size = s->n;
-    s->s[0] = 1;
-    s->s[1] = 1;
-    for(int p = 2; p < s->n; ++p){
-        if (s->s[p]==0){
+//#include "u_template.h"
+
+void fill_sieve(struct sieve_t *sv){
+    long long size = sv->n;
+    sv->s[0] = 1;
+    sv->s[1] = 1;
+    for(int p = 2; p < sv->n; ++p){
+        if (sv->s[p]==0){
             for(long long j = p; j*p < size; ++j){
-                s->s[j*p] = 1;
+                sv->s[j*p] = 1;
             }
         }
     }
 }
 
-int nth_prime(struct sieve_t *s, int N){
+int nth_prime(struct sieve_t *sv, int N){
     int index = 2;
     while (N>1){
         do {
             ++index;
-        } while((index < s->n) && (s->s[index])!=0);
-        if (index >= s->n) printf("ups\n");
+        } while((index < sv->n) && (sv->s[index])!=0);
         --N;
     }
     return index;

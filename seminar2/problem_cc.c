@@ -13,7 +13,7 @@ int main() {
     unsigned ans = 0;
     int res;
 
-    res = scanf_s("%d", &N);
+    res = scanf("%d", &N);
     assert(res == 1);
     assert(N > 0);
 

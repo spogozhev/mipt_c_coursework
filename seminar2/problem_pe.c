@@ -69,22 +69,29 @@ int main()
     assert(s->s);
 
     fill_sieve(s);
+/*
     for (int i = 2; i < n; ++i)
       printf("%d %d\n", i, is_prime(s, i));
+*/
 
     outp = nth_prime(s, n);
     printf("%d\n", outp);
+
+    //for (int i = 2; i < outp+1; ++i)
+    //  printf("%d %d\n", i, is_prime(s, i));
 
     free(s->s);
     free(s);
 }
 
 #line 10000
+// #include "u_template.h"
 
 int is_prime(struct sieve_t *sv, unsigned n)
 {
-    return (sv->s[n / 8] >> n % 8) & 1;
+    return 1 - ((sv->s[n / 8] >> n % 8) & 1);
 }
+/*
 void fill_sieve(struct sieve_t *sv)
 {
     unsigned long long n;
@@ -102,24 +109,24 @@ void fill_sieve(struct sieve_t *sv)
         }
     }
 }
+*/
 
-/*
 void fill_sieve(struct sieve_t *s){
-    long long size = s->n;
+    long long size = 8 * s->n ;
     int index;
     int shift;
     s->s[0] = (s->s[0]) | 1;
     s->s[0] = (s->s[0]) | 2;
-    for(int p = 2; p < s->n; ++p){
+    for(int p = 2; p < size; ++p){
         index = p/8;
-        shift = p - index;
+        shift = p - 8 * index;
         if ( ((s->s[index]) & (1<<shift)) == 0){
             for(long long j = p; j*p < size; ++j){
                 index = (j*p)/8;
-                shift = j*p - index;
-                s->s[index] = (s->s[index]) | (1 << shift);
+                shift = j*p - 8 * index;
+                s->s[index] |=  (1 << shift);
             }
         }
     }
 }
-*/
+
