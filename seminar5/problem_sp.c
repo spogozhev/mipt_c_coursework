@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *strcat_r(char *dest, const char *src, int *bufsz);
 char *replace(char *str, char const *from, char const *to);
 
 static char *read_word(int *len) {
@@ -46,23 +45,6 @@ int main() {
   free(repl);
   free(str);
   free(newstr);
-}
-
-char *strcat_r(char *dest, const char *src, int *bufsz){
-    int len_dest;
-    int len_src;
-    len_dest = strlen(dest);
-    len_src = strlen(src);
-    if (len_dest + len_src >= *bufsz){
-        *bufsz = len_dest + len_src + 1;
-        dest = (char*)realloc(dest, *bufsz);
-        if (dest == NULL){
-            *bufsz = 0;
-            return dest;
-        }
-    }
-    strncpy(dest + len_dest, src, len_src);
-    return dest;
 }
 
 char *replace(char *str, char const *from, char const *to){

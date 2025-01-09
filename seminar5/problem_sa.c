@@ -38,13 +38,13 @@ char *strcat_r(char *dest, const char *src, int *bufsz){
     len_dest = strlen(dest);
     len_src = strlen(src);
     if (len_dest + len_src >= *bufsz){
-        *bufsz = len_dest + len_src + 1;
-        dest = (char*)realloc(dest, *bufsz);
+        *bufsz = len_dest + len_src ;
+        dest = (char*)realloc(dest, *bufsz+1);
         if (dest == NULL){
             *bufsz = 0;
             return dest;
         }
     }
-    strncpy(dest + len_dest, src, len_src);
+    strncpy(dest + len_dest, src, len_src+1);
     return dest;
 }

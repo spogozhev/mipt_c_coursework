@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// В тестах на 10 значения больше, так как везде символ \n учитывается в конце.
+
 int main() {
   int sum = 0;
   int res;

@@ -88,7 +88,7 @@ unsigned long long pow_mod(unsigned n, unsigned k, unsigned m) {
 }
 
 char *strstrci(char const *needle, char const *haystack) {
-  unsigned n, target, cur, count = 0;
+  unsigned n, target, cur;
   unsigned left = 0;
   unsigned len = strlen(needle);
   unsigned right = len;
@@ -115,5 +115,5 @@ char *strstrci(char const *needle, char const *haystack) {
     right += 1;
   }
   
-  return (flag==1) ? haystack + left : NULL;
+  return (flag==1) ? (char*)(&haystack[0]) + left : NULL;
 }
